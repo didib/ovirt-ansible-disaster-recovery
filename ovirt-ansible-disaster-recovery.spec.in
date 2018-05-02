@@ -13,6 +13,9 @@ BuildArch:      noarch
 Url:            http://www.ovirt.org
 
 Requires: ansible >= 2.5
+Requires: ansible_vault
+Requires: configparser
+
 
 %description
 This Ansible role provide funtionality to perform disaster recovery for oVirt engine.
