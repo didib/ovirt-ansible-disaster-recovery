@@ -4,6 +4,8 @@
 rm -rf output
 rm -f ./*tar.gz
 
+SUFFIX=".git$(git rev-parse --short HEAD)"
+
 # Get the tarball
 ./build.sh dist
 
@@ -11,6 +13,7 @@ rm -f ./*tar.gz
 rpmbuild \
     -D "_srcrpmdir $PWD/output" \
     -D "_topmdir $PWD/rpmbuild" \
+    -D "release_suffix ${SUFFIX}" \
     -ts ./*.gz
 
 # install any build requirements
